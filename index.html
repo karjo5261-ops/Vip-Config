@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CIKUYA DIGITAL STORE - Akun VPN Premium</title>
+<title> APLIKASI CIKUYA DIGITAL STORE </title>
+
+<!-- KODE PWA TAMBAHAN -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#00ff41">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="CIKUYA">
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 body { 
@@ -34,7 +42,6 @@ body {
   to { box-shadow: 0 0 40px #00ff41, 0 0 60px #00ff41; }
 }
 
-/* TOMBOL MUSIK */
 .music-btn {
   position: absolute;
   top: 15px;
@@ -77,7 +84,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* HARGA NEON CARD */
 .harga { 
   background: rgba(0,255,65,0.05); 
   padding: 20px; 
@@ -121,7 +127,6 @@ h1 {
   margin-top: 8px;
 }
 
-/* INFO BOX PENGERTIAN */
 .info-box {
   background: rgba(0,255,65,0.05); 
   padding: 20px; 
@@ -144,7 +149,6 @@ h1 {
   opacity: 0.9;
 }
 
-/* ANIMASI SLIDE */
 #konfigArea {
   overflow: hidden;
   transition: all 0.4s ease;
@@ -156,7 +160,6 @@ h1 {
   padding: 0;
 }
 
-/* TOMBOL NEON */
 .btn { 
   display: block; 
   background: #00ff41; 
@@ -292,18 +295,23 @@ footer {
     </div>
 
     <button type="submit" class="btn">🚀 ORDER BULANAN KLIK DISINI</button>
-    <a href="https://wa.me/6283878807168" target="_blank" class="btn">MINGGUAN 5K KLIK DISINI</a>
+    <!-- NOMOR UDAH DIGANTI KE PUNYA KAMU -->
+    <a href="https://wa.me/6283845286102" target="_blank" class="btn">MINGGUAN 5K KLIK DISINI</a>
   </form>
 
   <footer>©2025-2026 CIKUYA DIGITAL STORE. 100% Membantu Tanpa Pamri™ Tidak Merasa Terbantu, Silahkan Pergi!!</footer>
 </div>
 
-<!-- MUSIK Di Matamu -->
 <audio id="bgmusic" loop preload="auto">
   <source src="musik4.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+// KODE PWA REGISTER
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+
 var music = document.getElementById("bgmusic");
 var btn = document.querySelector(".music-btn");
 var isPlaying = false;
@@ -380,7 +388,8 @@ document.getElementById('orderForm').onsubmit = function(e) {
   }
   
   pesan += `%0AMasa Aktif: 30 Hari`;
-  window.open("https://wa.me/6283878807168?text=" + pesan, '_blank'); 
+  // NOMOR UDAH DIGANTI KE PUNYA KAMU
+  window.open("https://wa.me/6283845286102?text=" + pesan, '_blank'); 
 };
 </script>
 </body>
