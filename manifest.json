@@ -2,7 +2,8 @@
   "name": "CIKUYA DIGITAL STORE",
   "short_name": "CIKUYA",
   "description": "Order Konfig Premium SSH VMESS VLESS TROJAN",
-  "start_url": "/",
+  "start_url": "./",    // <-- 1. INI GANTI DARI "/" 
+  "scope": "./",        // <-- 2. INI TAMBAHIN BARU
   "display": "standalone",
   "background_color": "#000",
   "theme_color": "#00ff41",
@@ -11,12 +12,14 @@
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"  // <-- 3. INI TAMBAHIN BIAR ICON RAPI
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"  // <-- 3. INI TAMBAHIN
     }
   ]
 }

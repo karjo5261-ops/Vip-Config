@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> APLIKASI CIKUYA STORE </title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00ff41">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="CIKUYA">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+body { 
+  font-family: 'Share Tech Mono', monospace; 
+  background: #000 url('anime-bg.png') no-repeat center fixed; /* TAMBAH BG ANIME */
+  background-size: cover;
+  color: #00ff41; 
+  text-align: center; 
+  padding: 20px; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 8px #000; /* KASIH BAYANGAN BIAR KEBACA */
+}
+
+.container { 
+  max-width: 480px; 
+  margin: auto; 
+  background: rgba(0,0,0,0.4); /* UBAH JADI TEMBUS 40% */
+  padding: 30px 25px; 
+  border-radius: 16px; 
+  box-shadow: 0 0 30px #00ff41, 0 0 60px #00ff41; 
+  border: 2px solid #00ff41;
+  position: relative;
+  animation: glow 2s ease-in-out infinite alternate;
+  backdrop-filter: blur(4px); /* EFEK BLUR KACA */
+}
+@keyframes glow {
+  from { box-shadow: 0 0 20px #00ff41; }
+  to { box-shadow: 0 0 40px #00ff41, 0 0 60px #00ff41; }
+}
+
+.music-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #00ff41;
+  border: none;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+}
+.music-btn:hover { background: #00cc33; }
+
+h1 { 
+  color: #00ff41;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  text-shadow: 0 0 10px #00ff41, 0 0 5px #000; /* GLOW + BAYANGAN */
+  letter-spacing: 2px;
+}
+.subtitle { font-size: 12px; color: #00ff41; opacity: 0.9; margin-bottom: 15px; letter-spacing: 3px; }
+
+.produk {
+  font-size: 16px;
+  font-weight: bold;
+  color: #00ff41;
+  margin: 5px 0 10px 0;
+}
+.spesifikasi {
+  font-size: 12px;
+  color: #00ff41;
+  background: rgba(0,255,65,0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00ff41;
+  margin-bottom: 20px;
+}
+
+.harga { 
+  background: rgba(0,255,65,0.08); /* TEMBUSIN DIKIT */
+  padding: 20px; 
+  border-radius: 12px; 
+  margin: 20px 0; 
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 20px rgba(0,255,65,0.3);
+}
+.harga h3 { 
+  color: #00ff41; 
+  text-align: center; 
+  margin: 0 0 15px 0; 
+  font-size: 18px;
+  text-shadow: 0 0 8px #00ff41;
+}
+.price-card {
+  background: rgba(10,10,10,0.7); /* TEMBUSIN */
+  border: 1px solid #00ff41;
+  border-radius: 10px;
+  padding: 14px;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0,255,65,0.2);
+}
+.price-card:hover {
+  background: #00ff41;
+  color: #000;
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #00ff41;
+}
+.price-card.mingguan {
+  border: 2px dashed #00ff41;
+  background: rgba(0,255,65,0.2);
+  position: relative;
+}
+.price-card.mingguan::before {
+  content: "PROMO AXIS";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #00ff41;
+  color: #000;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 900;
+}
+.price-card.mingguan:hover {
+  background: #00ff41;
+  color: #000;
+}
+.harga .note { 
+  background: transparent; 
+  font-size: 11px; 
+  text-align: center; 
+  border: none; 
+  font-weight: normal; 
+  opacity: 0.9; 
+  margin-top: 8px;
+}
+
+.info-box {
+  background: rgba(0,255,65,0.08); /* TEMBUSIN */
+  padding: 20px; 
+  border-radius: 12px; 
+  margin: 20px 0; 
+  border: 1px solid #00ff41;
+  text-align: left;
+}
+.info-box h3 { 
+  color: #00ff41; 
+  text-align: center; 
+  margin: 0 0 12px 0; 
+  font-size: 16px;
+  text-shadow: 0 0 8px #00ff41;
+}
+.info-box p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #00ff41;
+  opacity: 0.95;
+}
+
+#konfigArea {
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.hidden { 
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.btn { 
+  display: block; 
+  background: #00ff41; 
+  color: #000; 
+  padding: 14px; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  margin: 12px 0; 
+  font-weight: bold; 
+  border: none; 
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px; 
+  cursor: pointer; 
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 0 15px #00ff41;
+  transition: all 0.3s;
+}
+.btn:hover { 
+  background: #000; 
+  color: #00ff41; 
+  box-shadow: 0 0 25px #00ff41; 
+}
+
+input, select { 
+  width: 100%; 
+  padding: 12px; 
+  margin: 8px 0; 
+  border-radius: 8px; 
+  border: 1px solid #00ff41; 
+  background: rgba(10,10,10,0.7); /* TEMBUSIN */
+  color: #00ff41; 
+  box-sizing: border-box; 
+  font-family: 'Share Tech Mono', monospace;
+}
+input:focus, select:focus { 
+  outline: none; 
+  box-shadow: 0 0 10px #00ff41; 
+}
+label { 
+  font-size: 14px; 
+  text-align: left; 
+  display: block; 
+  margin-top: 10px; 
+  font-weight: bold; 
+  color: #00ff41; 
+}
+footer { 
+  font-size:11px; 
+  margin-top:20px; 
+  color:#00ff41; 
+  opacity: 0.8;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <button class="music-btn" onclick="toggleMusic()">🔊 ON</button>
+
+  <h1>♛CIKUYA VPN STORE♛</h1>
+  <p class="subtitle">ORDER KONFIG PREMIUM</p>
+  
+  <p class="produk">SSH | VMESS | VLESS | TROJAN</p>
+  <p class="spesifikasi">Stabil | Anti Lag | Full Speed | Kecepatan mengikuti jaringan Anda</p>
+
+  <div class="harga">
+    <h3>📦 DAFTAR HARGA KONFIG</h3>
+    <div class="price-card mingguan">⚡ 1CONFIG SPOTIFY 1 IP / DEVICE - Rp 5.000 [7 HARI]<br><small>KHUSUS AXIS + BONUS KUOTA 1GB/HARI</small></div>
+    <div class="price-card">1 IP - Rp 10.000 [30 HARI]</div>
+    <div class="price-card">2 IP - Rp 13.000 [30 HARI]</div>
+    <div class="price-card">3 IP - Rp 15.000 [30 HARI]</div>
+    <p class="note">Boleh Minta Tambah IP, Jika lebih dari 3 IP/Device </p>
+    <p class="note">★NO MULTI LOGIN, BOKEP, HOMO & MAKSIAT★</p>
+    <p class="note">Terdeteksi Multi Login Auto Blok & No Refund∅</p>
+    <p class="note">[✓] Membeli berarti setuju dengan setiap syarat & ketentuan yang berlaku.</p>
+    <p class="note">BISA PERPANJANG SEBELUM KONFIG EXPIRED</p>
+  </div>
+
+  <div class="info-box">
+    <h3>APA ITU IP DAN MULTI LOGIN?</h3>
+    <p>1 IP = 1 Perangkat. MULTI LOGIN = MENGGUNAKAN KONFIG LEBIH DARI PERANGKAT YANG DI PESAN, MISALNYA MEMBAGIKAN KONFIG KE ORANG LAIN ATAU MENGGUNAKAN KONFIG DI PERANGKAT LAIN.</p>
+  </div>
+
+  <h3 style="color:#00ff41;">📝 ORDER AKUN & KONFIG</h3>
+  <form id="orderForm">
+    <label>Username:Password</label>
+    <input type="text" id="username" placeholder="Contoh: kiwkiw:ganteng4444" required>
+
+    <label>TKP / Lokasi / Alamat</label>
+    <input type="text" id="tkp" placeholder="Contoh: Jakarta Timur" required>
+
+    <label>Pilih Jenis Akun:</label>
+    <select id="jenis" required>
+      <option value="">-- Pilih --</option>
+      <option value="SSH">SSH</option>
+      <option value="VMESS">VMESS</option>
+      <option value="VLESS">VLESS</option>
+      <option value="TROJAN">TROJAN</option>
+      <option value="APA AJA">GAK NGERTI (ASALKONEK)</option>
+    </select>
+
+    <label>Pilih Paket IP:</label>
+    <select id="paket" required>
+      <option value="">-- Pilih --</option>
+      <option value="1 IP - 5.000 [7 HARI] KHUS AXIS + BONUS SPOTIFY 1GB/HARI">⚡ 1 IP - 5.000 [7 HARI] KHUS AXIS + BONUS SPOTIFY 1GB/HARI</option>
+      <option value="1 IP - 10.000 [30 HARI]">1 IP - 10.000 [30 HARI]</option>
+      <option value="2 IP - 13.000 [30 HARI]">2 IP - 13.000 [30 HARI]</option>
+      <option value="3 IP - 15.000 [30 HARI]">3 IP - 15.000 [30 HARI]</option>
+    </select>
+
+    <label>Server:</label>
+    <select id="server" required>
+      <option value="">-- Pilih --</option>
+      <option value="Singapore">Singapore</option>
+      <option value="Indonesia">Indonesia</option>
+    </select>
+
+    <label>Butuh Konfig ?</label>
+    <select id="butuhKonfig" required onchange="toggleKonfig()">
+      <option value="">-- Pilih --</option>
+      <option value="Tidak">Tidak </option>
+      <option value="Ya">Iya, butuh konfig</option>
+    </select>
+
+    <div id="konfigArea" class="hidden">
+      <label>Provider:</label>
+      <select id="provider">
+        <option value="">-- Pilih --</option>
+        <option value="AXIS">AXIS</option>
+        <option value="XL">XL</option>
+        <option value="TELKOMSEL">TELKOMSEL</option>
+      </select>
+
+      <label>Request Konfig:</label>
+      <select id="konfig">
+        <option value="">-- Pilih Provider Dulu --</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn">🚀 ORDER SEKARANG KLIK DISINI</button>
+    <a href="https://wa.me/6283845286102" target="_blank" class="btn">1GB + CONFIG AXIS 5K / DM ADMIN</a>
+  </form>
+
+  <footer>©2025-2026 CIKUYA DIGITAL STORE. 100% Membantu Tanpa Pamri™ Tidak Merasa Terbantu, Silahkan Pergi!!</footer>
+</div>
+
+<audio id="bgmusic" loop preload="auto">
+  <source src="musik4.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js'); /* PATH UDAH GUA FIX */
+}
+
+var music = document.getElementById("bgmusic");
+var btn = document.querySelector(".music-btn");
+var isPlaying = false;
+
+document.body.addEventListener('click', function startMusic() {
+  if(!isPlaying){
+    music.volume = 0.2;
+    music.play().catch(e=>console.log("Autoplay diblokir"));
+    isPlaying = true;
+    btn.innerHTML = "🔊 ON";
+  }
+  document.body.removeEventListener('click', startMusic);
+});
+
+function toggleMusic() {
+  if(isPlaying){
+    music.pause();
+    btn.innerHTML = "🔇 OFF";
+    isPlaying = false;
+  } else {
+    music.play();
+    btn.innerHTML = "🔊 ON";
+    isPlaying = true;
+  }
+}
+
+function toggleKonfig() {
+  var butuh = document.getElementById("butuhKonfig").value;
+  var area = document.getElementById("konfigArea");
+  if(butuh == "Ya"){
+    area.classList.remove("hidden");
+    document.getElementById("provider").required = true;
+    document.getElementById("konfig").required = true;
+  } else {
+    area.classList.add("hidden");
+    document.getElementById("provider").required = false;
+    document.getElementById("konfig").required = false;
+    document.getElementById("provider").value = "";
+    document.getElementById("konfig").value = "";
+  }
+}
+
+function gantiKonfig() {
+  var provider = document.getElementById("provider").value;
+  var konfig = document.getElementById("konfig");
+  konfig.innerHTML = "<option value=''>-- Pilih --</option>";
+  
+  if(provider == "AXIS"){
+    konfig.innerHTML += "<option>WhatsApp</option><option>Spotify/Booster Musik</option><option>Booster Game</option><option>SHUSIROL</option><option>Booster Video</option><option>Booster Sosmed</option><option>Bebas mau apa?</option>";
+  }
+  if(provider == "XL"){
+    konfig.innerHTML += "<option>Edukasi</option><option>Conference</option><option>Iflix</option>";
+  }
+  if(provider == "TELKOMSEL"){
+    konfig.innerHTML += "<option>ILMU PEDIA</option><option>GAME MAX</option><option>ZOOM HALLO FLEXI</option>";
+  }
+}
+document.getElementById("provider").addEventListener("change", gantiKonfig);
+
+document.getElementById('orderForm').onsubmit = function(e) {
+  e.preventDefault();
+  var user = document.getElementById('username').value;
+  var tkp = document.getElementById('tkp').value;
+  var jenis = document.getElementById('jenis').value;
+  var paket = document.getElementById('paket').value;
+  var server = document.getElementById('server').value;
+  var butuh = document.getElementById('butuhKonfig').value;
+  var provider = document.getElementById('provider').value;
+  var konfig = document.getElementById('konfig').value;
+  
+  var pesan = `بسم الله الرحمن الرحيم Bang Mau Order Akun%0A%0AUsername: ${user}%0ATKP/Lokasi: ${tkp}%0AJenis Akun: ${jenis}%0APaket: ${paket}%0AServer: ${server}%0AButuh Konfig: ${butuh}`;
+  
+  if(butuh == "Ya"){
+    pesan += `%0AProvider: ${provider}%0ARequest Konfig: ${konfig}`;
+  }
+  
+  pesan += `%0AMasa Aktif: Sesuai Paket`;
+  window.open("https://wa.me/6283845286102?text=" + pesan, '_blank'); 
+};
+</script>
+</body>
+</html>
