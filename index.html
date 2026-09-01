@@ -1,422 +1,1277 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> PROMO KONFIG DI BULAN MAULID</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cikuya Digital Store - VPN Premium & Jasa Digital Open Order 24 Jam</title>
+  
+  <!-- Manifest PWA & Theme Color -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#00ff41">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#00ff41">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="CIKUYA">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-body { 
-  font-family: 'Share Tech Mono', monospace; 
-  background: #000 url('anime-bg.png') no-repeat center fixed; /* TAMBAH BG ANIME */
-  background-size: cover;
-  color: #00ff41; 
-  text-align: center; 
-  padding: 20px; 
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 0 0 8px #000; /* KASIH BAYANGAN BIAR KEBACA */
-}
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #070a12;
+      color: #f1f5f9;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 70px;
+    }
 
-.container { 
-  max-width: 480px; 
-  margin: auto; 
-  background: rgba(0,0,0,0.4); /* UBAH JADI TEMBUS 40% */
-  padding: 30px 25px; 
-  border-radius: 16px; 
-  box-shadow: 0 0 30px #00ff41, 0 0 60px #00ff41; 
-  border: 2px solid #00ff41;
-  position: relative;
-  animation: glow 2s ease-in-out infinite alternate;
-  backdrop-filter: blur(4px); /* EFEK BLUR KACA */
-}
-@keyframes glow {
-  from { box-shadow: 0 0 20px #00ff41; }
-  to { box-shadow: 0 0 40px #00ff41, 0 0 60px #00ff41; }
-}
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-.music-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #00ff41;
-  border: none;
-  color: #000;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: bold;
-  font-family: 'Share Tech Mono', monospace;
-}
-.music-btn:hover { background: #00cc33; }
+    .text-center { text-align: center; }
+    .text-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-h1 { 
-  color: #00ff41;
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 5px 0;
-  text-shadow: 0 0 10px #00ff41, 0 0 5px #000; /* GLOW + BAYANGAN */
-  letter-spacing: 2px;
-}
-.subtitle { font-size: 12px; color: #00ff41; opacity: 0.9; margin-bottom: 15px; letter-spacing: 3px; }
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 10, 18, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-.produk {
-  font-size: 16px;
-  font-weight: bold;
-  color: #00ff41;
-  margin: 5px 0 10px 0;
-}
-.spesifikasi {
-  font-size: 12px;
-  color: #00ff41;
-  background: rgba(0,255,65,0.1);
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #00ff41;
-  margin-bottom: 20px;
-}
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
 
-.harga { 
-  background: rgba(0,255,65,0.08); /* TEMBUSIN DIKIT */
-  padding: 20px; 
-  border-radius: 12px; 
-  margin: 20px 0; 
-  border: 2px solid #00ff41;
-  box-shadow: 0 0 20px rgba(0,255,65,0.3);
-}
-.harga h3 { 
-  color: #00ff41; 
-  text-align: center; 
-  margin: 0 0 15px 0; 
-  font-size: 18px;
-  text-shadow: 0 0 8px #00ff41;
-}
-.price-card {
-  background: rgba(10,10,10,0.7); /* TEMBUSIN */
-  border: 1px solid #00ff41;
-  border-radius: 10px;
-  padding: 14px;
-  margin: 10px 0;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
-  transition: all 0.3s;
-  box-shadow: 0 0 10px rgba(0,255,65,0.2);
-}
-.price-card:hover {
-  background: #00ff41;
-  color: #000;
-  transform: scale(1.03);
-  box-shadow: 0 0 20px #00ff41;
-}
-.price-card.mingguan {
-  border: 2px dashed #00ff41;
-  background: rgba(0,255,65,0.2);
-  position: relative;
-}
-.price-card.mingguan::before {
-  content: "PROMO AXIS";
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  background: #00ff41;
-  color: #000;
-  font-size: 9px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: 900;
-}
-.price-card.mingguan:hover {
-  background: #00ff41;
-  color: #000;
-}
-.harga .note { 
-  background: transparent; 
-  font-size: 11px; 
-  text-align: center; 
-  border: none; 
-  font-weight: normal; 
-  opacity: 0.9; 
-  margin-top: 8px;
-}
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-decoration: none;
+    }
 
-.info-box {
-  background: rgba(0,255,65,0.08); /* TEMBUSIN */
-  padding: 20px; 
-  border-radius: 12px; 
-  margin: 20px 0; 
-  border: 1px solid #00ff41;
-  text-align: left;
-}
-.info-box h3 { 
-  color: #00ff41; 
-  text-align: center; 
-  margin: 0 0 12px 0; 
-  font-size: 16px;
-  text-shadow: 0 0 8px #00ff41;
-}
-.info-box p {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #00ff41;
-  opacity: 0.95;
-}
+    .brand span {
+      color: #38bdf8;
+    }
 
-#konfigArea {
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-.hidden { 
-  max-height: 0;
-  opacity: 0;
-  margin: 0;
-  padding: 0;
-}
+    .btn-wa-header {
+      background-color: #10b981;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
 
-.btn { 
-  display: block; 
-  background: #00ff41; 
-  color: #000; 
-  padding: 14px; 
-  border-radius: 8px; 
-  text-decoration: none; 
-  margin: 12px 0; 
-  font-weight: bold; 
-  border: none; 
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 15px; 
-  cursor: pointer; 
-  font-family: 'Share Tech Mono', monospace;
-  box-shadow: 0 0 15px #00ff41;
-  transition: all 0.3s;
-}
-.btn:hover { 
-  background: #000; 
-  color: #00ff41; 
-  box-shadow: 0 0 25px #00ff41; 
-}
+    .btn-wa-header:hover {
+      background-color: #059669;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
 
-input, select { 
-  width: 100%; 
-  padding: 12px; 
-  margin: 8px 0; 
-  border-radius: 8px; 
-  border: 1px solid #00ff41; 
-  background: rgba(10,10,10,0.7); /* TEMBUSIN */
-  color: #00ff41; 
-  box-sizing: border-box; 
-  font-family: 'Share Tech Mono', monospace;
-}
-input:focus, select:focus { 
-  outline: none; 
-  box-shadow: 0 0 10px #00ff41; 
-}
-label { 
-  font-size: 14px; 
-  text-align: left; 
-  display: block; 
-  margin-top: 10px; 
-  font-weight: bold; 
-  color: #00ff41; 
-}
-footer { 
-  font-size:11px; 
-  margin-top:20px; 
-  color:#00ff41; 
-  opacity: 0.8;
-}
-</style>
+    /* Floating Alert Banner */
+    .floating-alert {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 12px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .floating-alert-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 0.875rem;
+      color: #f1f5f9;
+    }
+
+    .floating-alert-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .floating-alert-text strong {
+      color: #38bdf8;
+    }
+
+    .close-alert-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+
+    .close-alert-btn:hover {
+      color: #ffffff;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 75px;
+      right: 20px;
+      z-index: 998;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #ffffff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 450px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(16, 185, 129, 0.08) 50%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .promo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.825rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: #38bdf8;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Section General */
+    section {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Tab Filter Menu */
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: grid;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .pricing-card.popular {
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .card-type {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-status {
+      font-size: 0.75rem;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .provider-info {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .price-box {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .price-currency {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .price-amount {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .price-period {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .feature-list li {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: #10b981;
+      font-weight: 800;
+    }
+
+    .btn-card {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #334155;
+    }
+
+    .btn-card:hover {
+      background: #334155;
+    }
+
+    .pricing-card.popular .btn-card {
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    /* Duration Info Box */
+    .info-box {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 35px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .info-box-title {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .info-box-desc {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Steps Section */
+    .steps-bg {
+      background: rgba(15, 23, 42, 0.5);
+      border-y: 1px solid #1e293b;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .step-card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      padding: 20px 24px;
+      text-align: left;
+    }
+
+    .faq-item h3 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      color: #94a3b8;
+      font-size: 0.925rem;
+    }
+
+    /* CTA Section */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 24px;
+      padding: 48px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #1e293b;
+      padding: 40px 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .info-box { flex-direction: column; text-align: center; }
+      .floating-alert-content { flex-direction: column; text-align: center; gap: 6px; }
+      .tab-btn { width: 100%; justify-content: center; }
+      .back-to-top { bottom: 85px; right: 15px; width: 42px; height: 42px; }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <button class="music-btn" onclick="toggleMusic()">🔊 ON</button>
 
-  <h1>♛CIKUYA VPN STORE♛</h1>
-  <p class="subtitle">ORDER KONFIG PREMIUM</p>
-  
-  <p class="produk">SSH | VMESS | VLESS | TROJAN</p>
-  <p class="spesifikasi">Stabil | Anti Lag | Full Speed | Kecepatan mengikuti jaringan Anda</p>
-
-  <div class="harga">
-    <h3>📦 PROMO KONFIG MAULID NABI</h3>
-    <div class="price-card mingguan">⚡ 5 IP / DEVICE - Rp 13.000 [30 HARI/CLOUDFLERE]<br><small>KHUSUS AXIS + BONUS KUOTA 1GB/HARI</small></div>
-    <div class="price-card">1 IP - Rp 8.000 [30 HARI/CLOUDFLERE]</div>
-    <div class="price-card">2 IP - Rp 9.500 [30 HARI/CLOUDFLERE]</div>
-    <div class="price-card">3 IP - Rp 12.000 [30 HARI/CLOUDFRONT & CLOUDFLERE]</div>
-    <p class="note">Boleh Minta Tambah IP, Jika lebih dari 3 IP/Device </p>
-    <p class="note">★NO MULTI LOGIN, BOKEP, HOMO & MAKSIAT★</p>
-    <p class="note">Terdeteksi Multi Login Auto Blok & No Refund∅</p>
-    <p class="note">[✓] Membeli berarti setuju dengan setiap syarat & ketentuan yang berlaku.</p>
-    <p class="note">BISA PERPANJANG SEBELUM KONFIG EXPIRED 2 HARI</p>
-  </div>
-
-  <div class="info-box">
-    <h3>APA ITU IP DAN MULTI LOGIN?</h3>
-    <p>1 IP = 1 Perangkat. MULTI LOGIN = MENGGUNAKAN KONFIG LEBIH DARI PERANGKAT YANG DI PESAN, MISALNYA MEMBAGIKAN KONFIG KE ORANG LAIN ATAU MENGGUNAKAN KONFIG DI PERANGKAT LAIN.</p>
-  </div>
-
-  <h3 style="color:#00ff41;">📝 ORDER AKUN & KONFIG</h3>
-  <form id="orderForm">
-    <label>Username:Password</label>
-    <input type="text" id="username" placeholder="Contoh: kiwkiw:ganteng4444" required>
-
-    <label>TKP / Lokasi / Alamat</label>
-    <input type="text" id="tkp" placeholder="Contoh: Jakarta Timur" required>
-
-    <label>Pilih Jenis Akun:</label>
-    <select id="jenis" required>
-      <option value="">-- Pilih --</option>
-      <option value="SSH">SSH</option>
-      <option value="VMESS">VMESS</option>
-      <option value="VLESS">VLESS</option>
-      <option value="TROJAN">TROJAN</option>
-      <option value="APA AJA">GAK NGERTI (ASALKONEK)</option>
-    </select>
-
-    <label>Pilih Paket IP:</label>
-    <select id="paket" required>
-      <option value="">-- Pilih --</option>
-      <option value="1 IP - 5.000 [7 HARI] KHUS AXIS + BONUS SPOTIFY 1GB/HARI">⚡ 5 IP - 13.000 [30 HARI] </option>
-      <option value="1 IP - 10.000 [30 HARI]">1 IP - 8.000 [30 HARI]</option>
-      <option value="2 IP - 13.000 [30 HARI]">2 IP - 9.500 [30 HARI]</option>
-      <option value="3 IP - 15.000 [30 HARI]">3 IP - 12.000 [30 HARI]</option>
-    </select>
-
-    <label>Server:</label>
-    <select id="server" required>
-      <option value="">-- Pilih --</option>
-      <option value="Singapore">Singapore</option>
-      <option value="Indonesia">Indonesia</option>
-    </select>
-
-    <label>Butuh Konfig ?</label>
-    <select id="butuhKonfig" required onchange="toggleKonfig()">
-      <option value="">-- Pilih --</option>
-      <option value="Tidak">Tidak </option>
-      <option value="Ya">Iya, butuh konfig</option>
-    </select>
-
-    <div id="konfigArea" class="hidden">
-      <label>Provider:</label>
-      <select id="provider">
-        <option value="">-- Pilih --</option>
-        <option value="AXIS">AXIS</option>
-        <option value="XL">XL</option>
-        <option value="TELKOMSEL">TELKOMSEL</option>
-      </select>
-
-      <label>Request Konfig:</label>
-      <select id="konfig">
-        <option value="">-- Pilih Provider Dulu --</option>
-      </select>
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand">Cikuya<span> _ Store</span></a>
+      <a href="https://wa.me/6283845286102" target="_blank" class="btn-wa-header">
+        💬 Order via WhatsApp
+      </a>
     </div>
+  </header>
 
-    <button type="submit" class="btn">🚀 ORDER SEKARANG KLIK DISINI</button>
-    <a href="https://wa.me/6283845286102" target="_blank" class="btn">1GB + CONFIG AXIS 5K / DM ADMIN</a>
-  </form>
+  <!-- Floating Sticky Alert Banner -->
+  <div class="floating-alert" id="floatingAlert">
+    <div class="floating-alert-content">
+      <div class="floating-alert-text">
+        <span>🚨 <strong>PERINGATAN PENTING:</strong> Inject kuota <em>Iflix & Telkomsel Ilmupedia</em> wajib menggunakan <strong>VPN CLOUDFRONT</strong> agar terhubung di All TKP!</span>
+      </div>
+      <button class="close-alert-btn" onclick="document.getElementById('floatingAlert').style.display='none'">✕</button>
+    </div>
+  </div>
 
-  <footer>©2025-2026 CIKUYA DIGITAL STORE. 100% Membantu Tanpa Pamri™ Tidak Merasa Terbantu, Silahkan Pergi!!</footer>
-</div>
+  <!-- Button Back To Top -->
+  <a href="#pricing" class="back-to-top" id="backToTop" title="Ke Menu Produk">⬆️</a>
 
-<audio id="bgmusic" loop preload="auto">
-  <source src="musik4.mp3" type="audio/mpeg">
-</audio>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+      <div class="promo-badge">
+        🚀 WEBSITE LAYANAN DIGITAL TERMURAH
+      </div>
+      <h1>Tersedia VPN Premium Server ID <span class="text-gradient">Cloudflare & Cloudfront</span><br>Serta Jasa Digital Terpercaya</h1>
+      <p>Koneksi full speed, anti-blocking, unlimited bandwidth, hingga Pembuatan Undangan Pernikahan Online hemat & berkualitas.</p>
 
-<script>
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js'); /* PATH UDAH GUA FIX */
-}
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">Lihat Daftar Harga</a>
+        <a href="https://wa.me/6283845286102" target="_blank" class="btn-secondary">📲 Trial & Order WA</a>
+      </div>
+    </div>
+  </section>
 
-var music = document.getElementById("bgmusic");
-var btn = document.querySelector(".music-btn");
-var isPlaying = false;
+  <!-- Pricing Section with Tap Navigation -->
+  <section id="pricing">
+    <div class="container text-center">
+      <h2 class="section-title">Daftar Paket & Produk</h2>
+      <p class="section-subtitle">Tap kategori di bawah untuk memilih layanan dengan cepat.</p>
 
-document.body.addEventListener('click', function startMusic() {
-  if(!isPlaying){
-    music.volume = 0.2;
-    music.play().catch(e=>console.log("Autoplay diblokir"));
-    isPlaying = true;
-    btn.innerHTML = "🔊 ON";
-  }
-  document.body.removeEventListener('click', startMusic);
-});
+      <!-- Tap Menu Navigation -->
+      <div class="tab-container">
+        <button class="tab-btn active" onclick="switchTab(event, 'cloudflare-tab')">
+          <span>⚡</span> Cloudflare Series
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'cloudfront-tab')">
+          <span>☁️</span> CloudFront Series
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'inject-tab')">
+          <span>📍</span> Kuota Inject & Masa Aktif
+        </button>
+        <button class="tab-btn" onclick="switchTab(event, 'digital-tab')">
+          <span>💌</span> Undangan Online
+        </button>
+      </div>
 
-function toggleMusic() {
-  if(isPlaying){
-    music.pause();
-    btn.innerHTML = "🔇 OFF";
-    isPlaying = false;
-  } else {
-    music.play();
-    btn.innerHTML = "🔊 ON";
-    isPlaying = true;
-  }
-}
+      <!-- Tab 1: Cloudflare -->
+      <div id="cloudflare-tab" class="tab-content pricing-grid active">
+        <!-- 1 Device -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">Cloudflare</span>
+              <span class="card-status">🇮🇩 1 Device</span>
+            </div>
+            <h3>Paket 1 Device</h3>
+            <div class="provider-info">Server Indonesia Premium</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">8.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Config Siap Pakai</li>
+              <li>Support 1 Device Aktif</li>
+              <li>Bandwidth Unlimited</li>
+              <li>Opsi Durasi: 7, 15, & 30 Hari</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20VPN%20Cloudflare%201%20Device" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
 
-function toggleKonfig() {
-  var butuh = document.getElementById("butuhKonfig").value;
-  var area = document.getElementById("konfigArea");
-  if(butuh == "Ya"){
-    area.classList.remove("hidden");
-    document.getElementById("provider").required = true;
-    document.getElementById("konfig").required = true;
-  } else {
-    area.classList.add("hidden");
-    document.getElementById("provider").required = false;
-    document.getElementById("konfig").required = false;
-    document.getElementById("provider").value = "";
-    document.getElementById("konfig").value = "";
-  }
-}
+        <!-- 2 Device -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">POPULER</div>
+          <div>
+            <div class="card-meta" style="margin-top: 6px;">
+              <span class="card-type">Cloudflare</span>
+              <span class="card-status">🇮🇩 2 Device</span>
+            </div>
+            <h3>Paket 2 Device</h3>
+            <div class="provider-info">Server Indonesia Premium</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">10.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Config Siap Pakai</li>
+              <li>Support 2 Device Aktif</li>
+              <li>Bandwidth Unlimited</li>
+              <li>Opsi Durasi: 7, 15, & 30 Hari</li>
+              <li>Koneksi Lebih Stabil</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20VPN%20Cloudflare%202%20Device" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
 
-function gantiKonfig() {
-  var provider = document.getElementById("provider").value;
-  var konfig = document.getElementById("konfig");
-  konfig.innerHTML = "<option value=''>-- Pilih --</option>";
-  
-  if(provider == "AXIS"){
-    konfig.innerHTML += "<option>WhatsApp</option><option>Spotify/Booster Musik</option><option>Booster Game</option><option>SHUSIROL</option><option>Booster Video</option><option>Booster Sosmed</option><option>Bebas mau apa?</option>";
-  }
-  if(provider == "XL"){
-    konfig.innerHTML += "<option>Edukasi</option><option>Conference</option><option>Iflix ALL TKP/CLOUDFRONT</option>";
-  }
-  if(provider == "TELKOMSEL"){
-    konfig.innerHTML += "<option>ILMU PEDIA ALL TKP CLOUDFRONT</option><option>GAME MAX</option><option>ZOOM HALLO FLEXI</option>";
-  }
-}
-document.getElementById("provider").addEventListener("change", gantiKonfig);
+        <!-- 5 Device (HARGA DIUBAH KE 13.000) -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">Cloudflare</span>
+              <span class="card-status">🇮🇩 5 Device</span>
+            </div>
+            <h3>Paket 5 Device</h3>
+            <div class="provider-info">Server Indonesia Premium</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">13.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Config Siap Pakai</li>
+              <li>Support 5 Device Aktif</li>
+              <li>Bandwidth Unlimited</li>
+              <li>Opsi Durasi: 7, 15, & 30 Hari</li>
+              <li>Hemat Banyak Device</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20VPN%20Cloudflare%205%20Device" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+      </div>
 
-document.getElementById('orderForm').onsubmit = function(e) {
-  e.preventDefault();
-  var user = document.getElementById('username').value;
-  var tkp = document.getElementById('tkp').value;
-  var jenis = document.getElementById('jenis').value;
-  var paket = document.getElementById('paket').value;
-  var server = document.getElementById('server').value;
-  var butuh = document.getElementById('butuhKonfig').value;
-  var provider = document.getElementById('provider').value;
-  var konfig = document.getElementById('konfig').value;
-  
-  var pesan = `بسم الله الرحمن الرحيم Bang Mau Order Akun%0A%0AUsername: ${user}%0ATKP/Lokasi: ${tkp}%0AJenis Akun: ${jenis}%0APaket: ${paket}%0AServer: ${server}%0AButuh Konfig: ${butuh}`;
-  
-  if(butuh == "Ya"){
-    pesan += `%0AProvider: ${provider}%0ARequest Konfig: ${konfig}`;
-  }
-  
-  pesan += `%0AMasa Aktif: Sesuai Paket`;
-  window.open("https://wa.me/6283845286102?text=" + pesan, '_blank'); 
-};
-</script>
+      <!-- Tab 2: CloudFront -->
+      <div id="cloudfront-tab" class="tab-content pricing-grid">
+        <!-- SSH Reguler 14 Hari -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">Cloudfront</span>
+              <span class="card-status">14 Hari</span>
+            </div>
+            <h3>SSH Reguler (14H)</h3>
+            <div class="provider-info">PT Biznet Gio Nusantara</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">7.500</span>
+              <span class="price-period">/14 hr</span>
+            </div>
+            <ul class="feature-list">
+              <li>Masa Aktif 14 Hari</li>
+              <li>Bandwidth Unlimited</li>
+              <li>3 IP Aktif Langsung</li>
+              <li>Full Speed Tanpa FUP</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20SSH%20Reguler%20Cloudfront%2014%20Hari" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- SSH Reguler 30 Hari (HARGA DIUBAH KE 12.000) -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">Cloudfront</span>
+              <span class="card-status">30 Hari</span>
+            </div>
+            <h3>SSH Reguler (30H)</h3>
+            <div class="provider-info">PT Biznet Gio Nusantara</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">12.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Masa Aktif Bulanan (30 Hari)</li>
+              <li>Bandwidth Unlimited</li>
+              <li>3 IP Aktif Langsung</li>
+              <li>Full Speed Tanpa FUP</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20SSH%20Reguler%20Cloudfront%2030%20Hari" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- SSH Premium -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">PALING LARIS</div>
+          <div>
+            <div class="card-meta" style="margin-top: 6px;">
+              <span class="card-type">Cloudfront</span>
+              <span class="card-status">Khusus Bulanan</span>
+            </div>
+            <h3>SSH Premium</h3>
+            <div class="provider-info">PT. Media Antar Nusa</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">13.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Khusus Masa Aktif 30 Hari</li>
+              <li>Bandwidth Unlimited</li>
+              <li>3 IP Aktif Langsung</li>
+              <li>Full Speed Tanpa FUP</li>
+              <li>Prioritas Support Admin</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20SSH%20Premium%20Cloudfront" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- X-Ray Premium -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">Cloudfront</span>
+              <span class="card-status">Khusus Bulanan</span>
+            </div>
+            <h3>X-Ray Premium</h3>
+            <div class="provider-info">PT. Media Antar Nusa</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">13.000</span>
+              <span class="price-period">/bln</span>
+            </div>
+            <ul class="feature-list">
+              <li>Khusus Masa Aktif 30 Hari</li>
+              <li>Bandwidth Unlimited</li>
+              <li>3 IP Aktif Langsung</li>
+              <li>Protokol X-Ray Terbaru</li>
+              <li>Anti-Block Paling Kuat</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20X-Ray%20Premium%20Cloudfront" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Tab 3: Kuota Inject -->
+      <div id="inject-tab" class="tab-content pricing-grid">
+        <!-- Perpanjang Masa Aktif -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">XL & AXIS</span>
+              <span class="card-status">30 Hari</span>
+            </div>
+            <h3>Masa Aktif Kartu</h3>
+            <div class="provider-info">Khusus Kartu XL & AXIS</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">10.000</span>
+            </div>
+            <ul class="feature-list">
+              <li>Perpanjang Masa Aktif 30 Hari</li>
+              <li>Bonus Kuota Game 1GB 30 Hari</li>
+              <li>Free Config Game 1 Hari (Opsional)</li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20Tambah%20Masa%20Aktif%20XL/AXIS" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- XL Edu -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">XL Inject</span>
+              <span class="card-status">7 Hari</span>
+            </div>
+            <h3>XL Edu 15GB</h3>
+            <div class="provider-info">Kuota Edukasi XL</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">15.000</span>
+              <span class="price-period">+ Config</span>
+            </div>
+            <ul class="feature-list">
+              <li>Kuota Edukasi 15GB (7 Hari)</li>
+              <li>Harga Kuota Saja: <strong>Rp 12.000</strong></li>
+              <li>Paket + Config Siap Pakai: <strong>Rp 15.000</strong></li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20Inject%20XL%20Edu%2015GB" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- XL Conference -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">XL Inject</span>
+              <span class="card-status">7 Hari</span>
+            </div>
+            <h3>XL Conference 15GB</h3>
+            <div class="provider-info">Kuota Conference XL</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">17.000</span>
+              <span class="price-period">+ Config</span>
+            </div>
+            <ul class="feature-list">
+              <li>Kuota Conference 15GB (7 Hari)</li>
+              <li>Harga Kuota Saja: <strong>Rp 14.000</strong></li>
+              <li>Paket + Config Siap Pakai: <strong>Rp 17.000</strong></li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20Inject%20XL%20Conference%2015GB" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- XL X-TRA 30GB -->
+        <div class="pricing-card popular">
+          <div class="popular-badge">REKOMENDASI</div>
+          <div>
+            <div class="card-meta" style="margin-top: 6px;">
+              <span class="card-type">XL Inject</span>
+              <span class="card-status">30 Hari</span>
+            </div>
+            <h3>XL X-TRA 30GB</h3>
+            <div class="provider-info">Kuota X-TRA XL Kompleks</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">25.000</span>
+              <span class="price-period">+ Config</span>
+            </div>
+            <ul class="feature-list">
+              <li>Masa Aktif: <strong>30 Hari</strong></li>
+              <li>Kuota Iflix 14GB (24 Jam)</li>
+              <li>WhatsApp, Sosmed, & YT 1GB (24 Jam)</li>
+              <li>Kuota Malam (01:00 - 06:00)</li>
+              <li>Harga Kuota Saja: <strong>Rp 17.000</strong></li>
+              <li>Paket + Config Siap Pakai: <strong>Rp 25.000</strong></li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20Inject%20XL%20X-TRA%2030GB" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+
+        <!-- AXIS WhatsApp -->
+        <div class="pricing-card">
+          <div>
+            <div class="card-meta">
+              <span class="card-type">AXIS Inject</span>
+              <span class="card-status">14 Hari</span>
+            </div>
+            <h3>AXIS WA 13GB</h3>
+            <div class="provider-info">Kuota WhatsApp AXIS</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">20.000</span>
+              <span class="price-period">+ Config</span>
+            </div>
+            <ul class="feature-list">
+              <li>Kuota WhatsApp 13GB (14 Hari)</li>
+              <li>Harga Kuota Saja: <strong>Rp 17.000</strong></li>
+              <li>Paket + Config Siap Pakai: <strong>Rp 20.000</strong></li>
+            </ul>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20order%20Inject%20AXIS%20WhatsApp%2013GB" target="_blank" class="btn-card">Order via WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Tab 4: Undangan Digital -->
+      <div id="digital-tab" class="tab-content pricing-grid">
+        <div class="pricing-card popular" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+          <div class="popular-badge">PROMO MERIAH</div>
+          <div>
+            <div class="card-meta" style="margin-top: 6px;">
+              <span class="card-type">Jasa Digital</span>
+              <span class="card-status">Aktif 1 Bulan</span>
+            </div>
+            <h3>Undangan Pernikahan Online</h3>
+            <div class="provider-info">Desain Modern, Elegan & Praktis</div>
+            <div class="price-box">
+              <span class="price-currency">Rp</span>
+              <span class="price-amount">25.000</span>
+              <span class="price-period">(Bisa Nego)</span>
+            </div>
+            <ul class="feature-list">
+              <li>Bisa ganti <strong>Foto, Musik Background, & Maps Location</strong></li>
+              <li>Bisa ubah nama CPW & CPP sesuai keinginan</li>
+              <li>Muat untuk <strong>lebih dari 1.000+ Tamu Undangan</strong></li>
+              <li>Jauh lebih hemat daripada cetak undangan manual</li>
+              <li>Proses pengerjaan cepat & profesional</li>
+            </ul>
+            <div style="margin-bottom: 20px; text-align: left;">
+              <a href="https://cikuya-digitalstore.web.id/Pernikahan-Abdul-Siti/" target="_blank" style="color: #38bdf8; font-weight: 700; text-decoration: underline; font-size: 0.95rem;">
+                🔗 Lihat Contoh Demo Undangan Klik Disini
+              </a>
+            </div>
+          </div>
+          <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20pesan%20Undangan%20Pernikahan%20Online" target="_blank" class="btn-card">Order Undangan via WA</a>
+        </div>
+      </div>
+
+      <!-- Active Period Info Box -->
+      <div class="info-box">
+        <div>
+          <div class="info-box-title">📅 Ketentuan Masa Aktif VPN</div>
+          <div class="info-box-desc">
+            • <strong>Cloudflare:</strong> Bebas custom durasi (7 hari, 15 hari, 30 hari).<br>
+            • <strong>Cloudfront Reguler:</strong> Tersedia durasi 14 hari (Rp 7.500) & 30 hari (Rp 12.000).<br>
+            • <strong>Cloudfront SSH Premium & X-Ray:</strong> Khusus durasi 30 hari (bulanan).
+          </div>
+        </div>
+        <a href="https://wa.me/6283845286102?text=Halo%20Admin,%20saya%20mau%20tanya%20opsi%20durasi%20paket" target="_blank" class="btn-secondary" style="padding: 10px 20px; font-size: 0.875rem;">Konsultasi Durasi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" style="background: rgba(15, 23, 42, 0.4); border-y: 1px solid #1e293b;">
+    <div class="container text-center">
+      <h2 class="section-title">Kenapa Pilih Cikuya Digital Store?</h2>
+      <p class="section-subtitle">Layanan unggulan berkualitas tinggi dengan harga ramah kantong.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💸</div>
+          <h3>Harga Reseller & Terjangkau</h3>
+          <p>Seluruh produk VPN dan jasa digital kami ditawarkan dengan harga paling murah & ramah kantong sekelas harga reseller.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Produk Murah & Berkualitas</h3>
+          <p>Meskipun harga sangat murah, mutu server dan layanan kami tetap terjaga tinggi, stabil, serta dapat diandalkan.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>Open Order 24 Jam</h3>
+          <p>Order kapan saja; pagi, siang, sore maupun malam hari kapan pun kamu butuhkan.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Full Speed Unlimited</h3>
+          <p>Tanpa limit bandwidth & FUP. Fast response browsing, streaming, dan gaming.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💌</div>
+          <h3>Solusi Jasa Digital Hemat</h3>
+          <p>Menyediakan jasa pembuatan undangan online serba bisa (foto, musik, lokasi, nama pengantin) dengan harga super hemat.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📲</div>
+          <h3>Trial Gratis</h3>
+          <p>Bisa coba trial VPN gratis terlebih dahulu sebelum membeli paket untuk memastikan kecocokan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps-bg">
+    <div class="container text-center">
+      <h2 class="section-title">Cara Order & Trial</h2>
+      <p class="section-subtitle">Cuma 4 langkah, transaksi cepat & aman.</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Pilih Paket / Produk</h3>
+          <p>Klik tombol order via WhatsApp atau minta akun trial / info detail ke admin.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Pembayaran</h3>
+          <p>Bayar via QRIS (Semua e-wallet/Bank) atau e-wallet otomatis.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Proses Cepat</h3>
+          <p>Config VPN atau draf Undangan Online langsung dikirim oleh Admin via WhatsApp.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Selesai & Pakai</h3>
+          <p>Impor config VPN untuk terhubung, atau langsung bagikan link undangan digitalmu!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section>
+    <div class="container text-center">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-subtitle">Pertanyaan umum seputar layanan kami.</p>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>Mengapa harus memilih Cikuya Digital Store?</h3>
+          <p>Karena produk-produk kami sangat murah dan berkualitas tinggi! Kami menyajikan harga paling murah dan terjangkau setara harga khusus reseller, baik untuk server VPN maupun pembuatan undangan online.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Apa saja isi Kuota XL X-TRA 30GB?</h3>
+          <p>Kuota ini berisi: Kuota Iflix 14GB (24 jam), WhatsApp, Sosmed & YouTube 1GB (24 jam), serta Kuota Malam (01:00 - 06:00) dengan masa aktif penuh 30 hari.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Berapa harga CloudFront Reguler 30 Hari?</h3>
+          <p>Untuk paket CloudFront Reguler durasi 30 hari harganya cuma Rp 12.000!</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Bagaimana dengan promo Undangan Pernikahan Online?</h3>
+          <p>Hanya Rp 25.000 (bisa nego!), masa aktif 1 bulan, bebas ganti foto, musik background, google maps lokasi, serta nama pengantin (CPW & CPP). Sangat hemat dan bisa memuat 1.000+ tamu undangan.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Bagaimana cara mendapatkan trial VPN?</h3>
+          <p>Hubungi WhatsApp admin lalu pilih menu Trial. Kamu akan langsung mendapatkan config gratis untuk dicoba di device-mu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Ready to Order -->
+  <section>
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-icon">📲</div>
+        <h2 class="section-title">Siap Mencoba & Order?</h2>
+        <p class="section-subtitle" style="margin-bottom: 24px;">Manfaatkan harga hemat berkualitas reseller ini sekarang juga!</p>
+        <a href="https://wa.me/6283845286102" target="_blank" class="btn-primary">📲 Trial & Order via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="color: #ffffff; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;">Cikuya<span style="color: #38bdf8;"> Digital</span><span style="color: #38cc00;"> Store</span></p>
+      <p>VPN Premium & Jasa Digital, Open 24 Jam — Murah & Berkualitas</p>
+      <p>WhatsApp Admin: <a href="https://wa.me/6283845286102" style="color: #34d399; text-decoration: none;">Klik Disini</a></p>
+      <p style="margin-top: 16px; font-size: 0.8rem;">© 2026 Cikuya Digital Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Tag Audio (Background Music) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="./musik4.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    // 1. Script Register Service Worker (PWA)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker terdaftar:', reg.scope))
+          .catch(err => console.error('Service Worker gagal terdaftar:', err));
+      });
+    }
+
+    // 2. Script Auto-play Audio saat ada Klik/Tap Pertama
+    const music = document.getElementById('bgMusic');
+    function playAudio() {
+      if (music) {
+        music.play().then(() => {
+          document.removeEventListener('click', playAudio);
+          document.removeEventListener('touchstart', playAudio);
+        }).catch(err => console.log('Autoplay ditahan browser:', err));
+      }
+    }
+    document.addEventListener('click', playAudio);
+    document.addEventListener('touchstart', playAudio);
+
+    // 3. Script Switch Tab Product
+    function switchTab(event, tabId) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // 4. Script Show/Hide Back to Top Button On Scroll
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+  </script>
+
 </body>
 </html>
